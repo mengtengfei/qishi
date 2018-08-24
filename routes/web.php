@@ -11,6 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+//+----------------------------------------------------------
+//|					后台路由
+//+----------------------------------------------------------
+Route::group(['namespace'=>'Admin','prefix'=>'qishiadmin'],function(){
+	Route::get('/','IndexController@index');	//后台主页
+	
+	Route::resource('/column','ColumnController');//后台栏目
+});
+
+//+----------------------------------------------------------
+//|					前台路由
+//+----------------------------------------------------------
+Route::group([],function(){
+	Route::get('/','Home\IndexController@index');	//前台主页
 });
