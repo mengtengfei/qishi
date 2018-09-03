@@ -79,8 +79,8 @@
 			</div>
 			<div class="language pull-right clearfix">
 				<div class="language_wrap">
-					<a href="#">EN</a>
-					<a href="#">CN</a>
+					<a href="/login">登录</a>
+					<!-- <a href="#">CN</a> -->
 				</div>
 				<span>18145612345</span>
 			</div>
@@ -163,6 +163,7 @@
 		
 </div>	
 
+@section('bodys')
 <!--爱情鲜花-->
 <div class="container love-flowers clearfix">
 	<div class="loveh">
@@ -293,7 +294,7 @@
 	</div>
 </div>
 
-
+@show
 
 <!--底部导航-->
 <div class="container footer-nav">
@@ -316,9 +317,13 @@
 			</div>
 			<!-- 友情链接区域 -->
 			<div class="dropdown">
-
-				<a href="http://www.baidu.com" target="_blank">百度一下，你就知道</a>
-			
+				<a href="/create">申请链接</a>	
+				@foreach($data as $row)
+				@if($row->l_state==1)
+				<a href="{{$row->l_url}}" target="_blank">{{$row->l_name}}</a>
+				@endif
+				@endforeach
+				
 			</div>
 			<!-- 友情链接结束 -->
 		</div>
