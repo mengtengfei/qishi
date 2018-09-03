@@ -36,7 +36,7 @@
 <link rel="stylesheet" type="text/css" href="/admin/b/css/my.css" media="screen">
 <script src="/admin/b/js/libs/jquery-1.8.3.min.js"></script>
 
-<title>{{$title}}</title>
+<title>@yield('title')</title>
 <style type="text/css">
 /*分页修改开始*/
     .pagination>li{
@@ -84,12 +84,12 @@
                 <!-- Username and Functions -->
                 <div id="mws-user-functions">
                     <div id="mws-username">
-                        你好：管理员
+                        你好：{{session('u_name')}}
                     </div>
                     <ul>
                     	
                         <li><a href="#">修改密码</a></li>
-                        <li><a href="#">退出</a></li>
+                        <li><a href="/login">退出</a></li>
                     </ul>
                 </div>
             </div>
@@ -124,12 +124,28 @@
             
             <!-- Main Navigation -->
             <div id="mws-navigation">
-                <ul> 
+                <ul>
+                <li>
+                    <a href="#"><i class="icon-user"></i> 管理员管理</a>
+                        <ul class="closed">
+                            <li><a href="/qishiadmin/users">查看管理员</a></li>
+                            <li><a href="/qishiadmin/users/create">新增管理员</a></li>
+                            
+                        </ul>
+                    </li>   
                 <li>
                     <a href="#"><i class="icon-user"></i> 栏目管理</a>
                         <ul class="closed">
                             <li><a href="/qishiadmin/column">查看栏目</a></li>
                             <li><a href="/qishiadmin/column/create">新增栏目</a></li>
+                            
+                        </ul>
+                    </li>                
+                     <li>
+                    <a href="#"><i class="icon-user"></i> 友情链接</a>
+                        <ul class="closed">
+                            <li><a href="/qishiadmin/links">查看链接</a></li>
+                            <li><a href="/qishiadmin/links/create">新增链接</a></li>
                             
                         </ul>
                     </li>                
